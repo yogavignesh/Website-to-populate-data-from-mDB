@@ -1,0 +1,67 @@
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $("#revealbutton").click(function(){
+
+       $.get("jsonsource/zipsource", function(data){
+
+      		 
+		for (var i = 0; i <100 ; i++)
+	          {     
+				console.log(data[i].city+","+data[i].state);
+				if(i%2==0){
+                      		var row = $("<tr class='even'>");
+				}
+				else{
+				var row = $("<tr>");
+				}
+
+				 $("#zipcode").append(row);
+				row.append($("<td>" + data[i].city + "</td>"));
+				row.append($("<td>" + data[i].pop + "</td>"));
+				row.append($("<td>" + data[i].state + "</td>"));
+				row.append($("<td>" + data[i]._id + "</td>"));		
+                      			 
+                            	var row = $("<tr/>");
+				    
+				}
+				
+         
+			});
+
+		});
+
+});
+
+                         
+                      
+
+</script>
+<div style="text-alignment:center">
+<input type="button" id="revealbutton" value="Show cities in Iowa" name="button"/>
+
+
+<h1>Project 1</h1>
+<p>This page displays json zip code data in a tabular form</p>
+
+
+<table cellspacing='0' id="dtable">
+
+	
+	<thead>
+		<tr>
+			<th>City</th>
+			<th>Population</th>
+			<th>State</th>
+<th>Zipcode</th>
+		</tr>
+	</thead>
+	<tbody id="zipcode">
+
+</tbody>
+
+
+</table>
+</div>
