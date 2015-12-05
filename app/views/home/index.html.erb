@@ -34,7 +34,7 @@
                   .wrapInner('<div style="display: block;" />')
                   .parent()
                   .find('td > div')
-                  .slideDown(1000, function(){
+                  .slideDown(400, function(){
 
                     var $set = $(this);
                     $set.replaceWith($set.contents());
@@ -44,7 +44,7 @@
               rec_id=rec_id+1;
           }
           });
-        }, 2000);
+        }, 500);
       });
   });
 
