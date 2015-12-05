@@ -8,8 +8,9 @@
 
         this.value="Close the table";
         $(this).css('color','red');
+	var count=0;
         $.get("jsonsource/zipsource", function(data){
-          for (var i = 0; i <100 ; i++)
+          for (var i = 0; i <data.length ; i++)
           {
             if(i%2==0){
               var row = $("<tr class='even'>");
@@ -17,15 +18,26 @@
             else{
               var row = $("<tr>");
             }
-            $("#zipcode").append(row);
-            row.append($("<td>" + data[i].city + "</td>"));
-            row.append($("<td>" + data[i].pop + "</td>"));
-            row.append($("<td>" + data[i].state + "</td>"));
-            row.append($("<td>" + data[i]._id + "</td>"));
+	    if(count%20===0){
+                 alert("hi");
+		 $("#cod").append("");
+	    }	
+
+            $("#cod").append(row);
+            row.append($("<td>" + data[i].cid + "</td>"));
+            row.append($("<td>" + data[i].year + "</td>"));
+            row.append($("<td>" + data[i].ethnicity + "</td>"));
+            row.append($("<td>" + data[i].count + "</td>"));
+	    row.append($("<td>" + data[i].sex + "</td>"));
+            row.append($("<td>" + data[i].causeofdeath + "</td>"));
+            row.append($("<td>" + data[i].percent + "</td>"));
+            
+
             var row = $("</tr>");
+	    count=count+1;
           }
 
-          $("#dtable").show();
+          $("#dtable").show().slideUp(300).delay(1000).fadeIn(400);
         });
       }
       else{
@@ -39,18 +51,21 @@
 </script>
 <div align="center">
   <h1>Project 3</h1>
-  <p>Displays data from a Redis database(key value storage)</p>
+  <p>Displays data from a MongoDb database in heroku server</p>
   <input type="button" id="revealbutton" value="What does this button do?" style="color:green" name="button"/>
   <table cellspacing='0' id="dtable">
     <thead>
     <tr>
-      <th>City</th>
-      <th>Population</th>
-      <th>State</th>
-      <th>Zipcode</th>
+      <th>Cid</th>
+      <th>year</th>
+      <th>ethnicity</th>
+      <th>count</th>
+<th>sex</th>
+<th>causeofdeath</th>
+<th>percent</th>
     </tr>
     </thead>
-    <tbody id="zipcode">
+    <tbody id="cod">
     </tbody>
   </table>
   </div>
