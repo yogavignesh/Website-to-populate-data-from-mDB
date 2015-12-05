@@ -16,10 +16,10 @@
 
               }
               if (j % 2 == 0) {
-                var table_row = $("<tr class='even'>");
+                var table_row = $("<tr id='"+record_count+"' class='even'>");
               }
               else {
-                var table_row = $("<tr>");
+                var table_row = $("<tr id='"+record_count+"'>");
               }
               table_row.append($("<td>" + data[j].cid + "</td>"));
               table_row.append($("<td>" + data[j].year + "</td>"));
@@ -30,16 +30,8 @@
               table_row.append($("<td>" + data[j].percent + "</td>"));
               table_row.append($("</tr>"));
               $("#cod").append(table_row);
-              $("#cod > tbody > tr").find('td')
-                  .wrapInner('<div style="display: block;" />')
-                  .parent()
-                  .find('td > div')
-                  .slideDown(400, function(){
-
-                    var $set = $(this);
-                    $set.replaceWith($set.contents());
-
-                  });
+              $("#cod tr#"+record_count).hide();
+              $("#cod tr#"+record_count).fadeIn("slow");
               record_count = record_count + 1;
               rec_id=rec_id+1;
           }
