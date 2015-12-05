@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   
 
   root 'home#index'
-get 'jsonsource/zipsource'
+#get 'jsonsource/zipsource'
+#get 'get_mongo_data/fetch'
  # get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,8 +13,8 @@ get 'jsonsource/zipsource'
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
+  #get 'products/:id' => 'catalog#view'
+  get 'get_mongo_data/fetch/:k' => 'get_mongo_data#fetch'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

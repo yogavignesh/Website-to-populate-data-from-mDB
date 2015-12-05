@@ -1,58 +1,47 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
-    $("#dtable").hide();
     $("#revealbutton").click(function(){
 
-      if($(this).attr("value")=="What does this button do?"){
+      var record_count=0;
+      var rec_id=18922;
+       //jquery call back function to get one record in each request
+        setInterval(function() {
+          $.get("get_mongo_data/fetch/"+ rec_id.toString(), function (data) {
+            for (var j = 0; j < 100; j++){
+              if(record_count%20===0){
+                $("#cod").html("");
 
-        this.value="Close the table";
-        $(this).css('color','red');
-	var count=0;
-        $.get("jsonsource/zipsource", function(data){
-          for (var i = 0; i <data.length ; i++)
-          {
-            if(i%2==0){
-              var row = $("<tr class='even'>");
-            }
-            else{
-              var row = $("<tr>");
-            }
-	    if(count%20===0){
-                 alert("hi");
-		 $("#cod").append("");
-	    }	
+              }
+              if (j % 2 == 0) {
+                var table_row = $("<tr class='even'>");
+              }
+              else {
+                var table_row = $("<tr>");
+              }
+              table_row.append($("<td>" + data[j].cid + "</td>"));
+              table_row.append($("<td>" + data[j].year + "</td>"));
+              table_row.append($("<td>" + data[j].ethnicity + "</td>"));
+              table_row.append($("<td>" + data[j].count + "</td>"));
+              table_row.append($("<td>" + data[j].sex + "</td>"));
+              table_row.append($("<td>" + data[j].causeofdeath + "</td>"));
+              table_row.append($("<td>" + data[j].percent + "</td>"));
+              table_row.append($("</tr>"));
+              $("#cod").append(table_row);
 
-            $("#cod").append(row);
-            row.append($("<td>" + data[i].cid + "</td>"));
-            row.append($("<td>" + data[i].year + "</td>"));
-            row.append($("<td>" + data[i].ethnicity + "</td>"));
-            row.append($("<td>" + data[i].count + "</td>"));
-	    row.append($("<td>" + data[i].sex + "</td>"));
-            row.append($("<td>" + data[i].causeofdeath + "</td>"));
-            row.append($("<td>" + data[i].percent + "</td>"));
-            
-
-            var row = $("</tr>");
-	    count=count+1;
+              record_count = record_count + 1;
+              rec_id=rec_id+1;
           }
-
-          $("#dtable").show().slideUp(300).delay(1000).fadeIn(400);
-        });
-      }
-      else{
-        $("#dtable").hide();
-        this.value="What does this button do?"
-        $(this).css('color','green');
-      }
-    });
+          });
+        }, 500);
+      });
   });
 
 </script>
 <div align="center">
   <h1>Project 3</h1>
   <p>Displays data from a MongoDb database in heroku server</p>
-  <input type="button" id="revealbutton" value="What does this button do?" style="color:green" name="button"/>
+  <input type="button" id="revealbutton" value="Show the result" style="color:green" name="button"/>
   <table cellspacing='0' id="dtable">
     <thead>
     <tr>
