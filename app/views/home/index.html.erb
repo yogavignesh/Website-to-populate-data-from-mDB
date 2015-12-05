@@ -1,12 +1,14 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
+
     $("#revealbutton").click(function(){
 
       var record_count=0;
       var rec_id=18922;
        //jquery call back function to get one record in each request
         setInterval(function() {
+
           $.get("get_mongo_data/fetch/"+ rec_id.toString(), function (data) {
             for (var j = 0; j < 100; j++){
               if(record_count%20===0){
@@ -28,12 +30,21 @@
               table_row.append($("<td>" + data[j].percent + "</td>"));
               table_row.append($("</tr>"));
               $("#cod").append(table_row);
+              $("#cod > tbody > tr").find('td')
+                  .wrapInner('<div style="display: block;" />')
+                  .parent()
+                  .find('td > div')
+                  .slideDown(1000, function(){
 
+                    var $set = $(this);
+                    $set.replaceWith($set.contents());
+
+                  });
               record_count = record_count + 1;
               rec_id=rec_id+1;
           }
           });
-        }, 500);
+        }, 2000);
       });
   });
 
@@ -45,13 +56,13 @@
   <table cellspacing='0' id="dtable">
     <thead>
     <tr>
-      <th>Cid</th>
-      <th>year</th>
-      <th>ethnicity</th>
-      <th>count</th>
-<th>sex</th>
-<th>causeofdeath</th>
-<th>percent</th>
+      <th>ID</th>
+      <th>YEAR</th>
+      <th>ETHNICITY</th>
+      <th>COUNT</th>
+<th>SEX</th>
+<th>CAUSE OF DEATH</th>
+<th>PERCENT</th>
     </tr>
     </thead>
     <tbody id="cod">
