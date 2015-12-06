@@ -38,7 +38,7 @@ Commands required to deploy and run your server?
        
 ### The link to the running heroku app
 
-        https://cse5335-yxs1504.herokuapp.com/
+        https://cse5335-yxs1504-3.herokuapp.com/
         
 ### References
 
