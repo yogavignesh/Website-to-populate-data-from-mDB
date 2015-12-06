@@ -10,12 +10,13 @@
         var callbackfn=setInterval(function() {
 
           $.get("get_mongo_data/fetch/"+ rec_id.toString(), function (data) {
-            for (var j = 0; j < 100; j++){
+            for (var j = 0; j < 10; j++){
 
               if(record_count%20===0){
                 $("#cod").html("");
 
               }
+              $("#cor").html(record_count.toString());
               if (j % 2 == 0) {
                 var table_row = $("<tr id='"+record_count+"' class='even'>");
               }
@@ -48,7 +49,9 @@
 <div align="center">
   <h1>Project 3</h1>
   <p>Displays data from a MongoDb database in heroku server</p>
+
   <input type="button" id="revealbutton" value="Show the result" style="color:green" name="button"/>
+  <span style="color:darkgreen">Count of records: <label id="cor"></label></span>
   <table cellspacing='0' id="dtable">
     <thead>
     <tr>
@@ -63,5 +66,7 @@
     </thead>
     <tbody id="cod">
     </tbody>
+
   </table>
+
   </div>
