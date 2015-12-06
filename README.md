@@ -15,7 +15,8 @@ b. What aspect of the implementation did you find hard, if any, and why?
 c. If you were to use these technologies professionally ,what would be your biggest concern? 
 
     I would definitely use Ruby for developing web applications as makes things easy but generating the files for you.
-    But it is a language that takes some time to understand.Also the biggest concern would be to find all the dependencies for     the applcation being developed as Ruby does not have complete support like other javascript laguages like Node.js. 
+    But it is a language that takes some time to understand.
+    Also the biggest concern would be to find all the dependencies for the applcation being developed as Ruby does not have        complete support like other javascript laguages like Node.js. 
 
 Commands required to deploy and run your server? 
 # Uploading code to github:
