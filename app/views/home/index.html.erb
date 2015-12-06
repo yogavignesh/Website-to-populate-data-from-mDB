@@ -7,10 +7,11 @@
       var record_count=0;
       var rec_id=18922;
        //jquery call back function to get one record in each request
-        setInterval(function() {
+        var callbackfn=setInterval(function() {
 
           $.get("get_mongo_data/fetch/"+ rec_id.toString(), function (data) {
             for (var j = 0; j < 100; j++){
+
               if(record_count%20===0){
                 $("#cod").html("");
 
@@ -34,7 +35,10 @@
               $("#cod tr#"+record_count).fadeIn("slow");
               record_count = record_count + 1;
               rec_id=rec_id+1;
-          }
+              if (record_count==100){
+                clearInterval(callbackfn);
+              }
+            }
           });
         }, 500);
       });
