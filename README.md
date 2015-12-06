@@ -43,4 +43,8 @@ Commands required to deploy and run your server?
         
 ### References
 
-        http://www.sitepoint.com/use-google-maps-rails/
+        http://www.stackoverflow.com/
+        http://www.slideshare.net/rfischer20/mongodb-and-ruby-on-rails
+        http://railscasts.com/episodes/396-importing-csv-and-excel?view=asciicast
+        https://devcenter.heroku.com/articles/rack#database_access
+        http://railscasts.com/episodes?utf8=%E2%9C%93&search=paginate
