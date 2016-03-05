@@ -10,7 +10,7 @@ Commands required to deploy and run your server?
      $ git remote add origin https://github.com/yogavignesh/cse5335-yxs1504-3.git
      $ git push -u origin master 
 
-# Getting code from github:
+# Getting code from github and deploying in heroku:
 
        $ heroku Login
        $ git clone https://github.com/yogavignesh/cse5335-yxs1504-3.git
