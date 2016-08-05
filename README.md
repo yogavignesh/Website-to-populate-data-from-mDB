@@ -4,17 +4,17 @@ Commands required to deploy and run your server?
 # Uploading code to github:
 
      $ git init
-     $ echo "# cse5335-yxs1504-3" >> README.md
+     $ echo "# Website-to-populate-data-from-mDB" >> README.md
      $ git add README.md
      $ git commit -m "first commit"
-     $ git remote add origin https://github.com/yogavignesh/cse5335-yxs1504-3.git
+     $ git remote add origin https://github.com/yogavignesh/Website-to-populate-data-from-mDB.git
      $ git push -u origin master 
 
 # Getting code from github and deploying in heroku:
 
        $ heroku Login
-       $ git clone https://github.com/yogavignesh/cse5335-yxs1504-3.git
-       $ cd cse5335-yxs1504-3
+       $ git clone https://github.com/yogavignesh/Website-to-populate-data-from-mDB.git
+       $ cd Website-to-populate-data-from-mDB
        $ heroku create
        $ git push heroku master
        $ heroku open
