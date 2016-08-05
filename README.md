@@ -1,14 +1,6 @@
 # Populate data from mDB into a Heroku deployed website.  
 
 Commands required to deploy and run your server? 
-# Uploading code to github:
-
-     $ git init
-     $ echo "# Website-to-populate-data-from-mDB" >> README.md
-     $ git add README.md
-     $ git commit -m "first commit"
-     $ git remote add origin https://github.com/yogavignesh/Website-to-populate-data-from-mDB.git
-     $ git push -u origin master 
 
 # Getting code from github and deploying in heroku:
 
