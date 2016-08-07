@@ -7,7 +7,7 @@ Commands required to deploy and run your server?
        $ heroku Login
        $ git clone https://github.com/yogavignesh/Website-to-populate-data-from-mDB.git
        $ cd Website-to-populate-data-from-mDB
-       $ heroku create
+       $ heroku create website-populate-from-mongodb
        $ git push heroku master
        $ heroku open
        
